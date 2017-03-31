@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <android.support.v7.widget.Toolbar
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:text="@string/share"/>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <EditText
+        android:id="@+id/microblog_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="@string/hint_new"
+        android:inputType="textMultiLine"
+        android:gravity="start|top"
+        android:layout_weight="1"/>
+
+    <include layout="@layout/divider"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/add_photo"
+            android:layout_gravity="start"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_panorama_black_24dp"/>
+
+    </LinearLayout>
+</LinearLayout>
