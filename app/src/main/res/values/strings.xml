@@ -14,7 +14,10 @@
     <string name="v0_1_0">校园安全 v0.1.0</string>
     <string name="repost">转发</string>
     <string name="comment">评论</string>
-    <string name="like">支持</string>
+    <string name="like">点赞</string>
     <string name="hint_new">请输入分享内容</string>
     <string name="share">分享</string>
+    <string name="network_error">网络连接出错，请检查是否有网络连接</string>
+    <string name="already_latest">已经是最新了</string>
+    <string name="up_load_more">上拉加载更多</string>
 </resources>

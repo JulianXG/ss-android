@@ -8,11 +8,12 @@ import android.content.SharedPreferences;
 
 import cn.kalyter.ss.data.local.SplashSource;
 
+import static cn.kalyter.ss.config.Config.COMMON_SP;
+
 
 public class SplashRepository implements SplashSource {
     private SharedPreferences mSharedPreferences;
     private Context mContext;
-    private static final String COMMON_SP = "COMMON_SP";
     private static final String KEY_IS_LOGIN = "IS_LOGIN";
     private static final String KEY_SPLASH_LAST_TIME = "SPLASH_LAST_TIME";
 
@@ -22,7 +23,7 @@ public class SplashRepository implements SplashSource {
     }
     @Override
     public Boolean getIsLogin() {
-        return mSharedPreferences.getBoolean(KEY_IS_LOGIN, true);
+        return mSharedPreferences.getBoolean(KEY_IS_LOGIN, false);
     }
 
     @Override

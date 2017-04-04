@@ -6,10 +6,12 @@ package cn.kalyter.ss.data.local;
 
 import cn.kalyter.ss.model.User;
 
-public interface LoginSource {
+public interface UserSource {
     void saveUser(User user);
 
     User getUser();
+
+    int getUserId();
 //
 //    void saveToken(Token token);
 //

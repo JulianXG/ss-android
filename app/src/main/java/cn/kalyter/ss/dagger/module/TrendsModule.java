@@ -6,6 +6,9 @@ package cn.kalyter.ss.dagger.module;
 import android.content.Context;
 
 import cn.kalyter.ss.contract.TrendsContract;
+import cn.kalyter.ss.data.local.UserSource;
+import cn.kalyter.ss.data.remote.api.MicroblogService;
+import cn.kalyter.ss.data.remote.api.OperateService;
 import cn.kalyter.ss.presenter.TrendsPresenter;
 import dagger.Module;
 import dagger.Provides;
@@ -22,7 +25,10 @@ public class TrendsModule {
     }
 
     @Provides
-    TrendsContract.Presenter providePresenter() {
-        return new TrendsPresenter(mView, mContext);
+    TrendsContract.Presenter providePresenter(MicroblogService microblogService,
+                                              UserSource userSource,
+                                              OperateService operateService) {
+        return new TrendsPresenter(mView, mContext,
+                microblogService, userSource, operateService);
     }
 }

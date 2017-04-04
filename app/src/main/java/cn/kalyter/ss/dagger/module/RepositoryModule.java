@@ -5,9 +5,9 @@ package cn.kalyter.ss.dagger.module;
 
 import android.content.Context;
 
-import cn.kalyter.ss.data.local.LoginSource;
+import cn.kalyter.ss.data.local.UserSource;
 import cn.kalyter.ss.data.local.SplashSource;
-import cn.kalyter.ss.data.local.repository.LoginRepository;
+import cn.kalyter.ss.data.local.repository.UserRepository;
 import cn.kalyter.ss.data.local.repository.SplashRepository;
 import dagger.Module;
 import dagger.Provides;
@@ -15,8 +15,8 @@ import dagger.Provides;
 @Module
 public class RepositoryModule {
     @Provides
-    LoginSource provideLoginSource() {
-        return new LoginRepository();
+    UserSource provideUserSource(Context context) {
+        return new UserRepository(context);
     }
 
     @Provides

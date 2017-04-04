@@ -7,7 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 
 import cn.kalyter.ss.contract.LoginContract;
-import cn.kalyter.ss.data.local.LoginSource;
+import cn.kalyter.ss.data.local.UserSource;
 import cn.kalyter.ss.data.local.SplashSource;
 import cn.kalyter.ss.data.remote.api.UserService;
 import cn.kalyter.ss.presenter.LoginPresenter;
@@ -32,9 +32,9 @@ public class LoginModule {
     @Provides
     LoginContract.Presenter providePresenter(LoginContract.View view,
                                              UserService userService,
-                                             LoginSource loginSource,
+                                             UserSource userSource,
                                              SplashSource splashSource) {
-        return new LoginPresenter(view, userService, loginSource, splashSource);
+        return new LoginPresenter(view, userService, userSource, splashSource);
     }
 
     @Provides

@@ -7,7 +7,11 @@ import cn.kalyter.ss.dagger.module.TrendsModule;
 import cn.kalyter.ss.view.TrendsFragment;
 import dagger.Component;
 
-@Component(modules = TrendsModule.class)
+@Component(modules = TrendsModule.class, dependencies = {
+        AppComponent.class,
+        ApiComponent.class,
+        RepositoryComponent.class
+})
 public interface TrendsComponent {
     void inject(TrendsFragment trendsFragment);
 }

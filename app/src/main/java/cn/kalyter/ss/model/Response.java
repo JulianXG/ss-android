@@ -3,19 +3,14 @@
  */
 package cn.kalyter.ss.model;
 
+
 public class Response<T> {
 
-    private Status status;
+    private String message;
+
+    private Long code;
 
     private T data;
-
-    public Response(T data,Status status) {
-        this.status = status;
-        this.data = data;
-    }
-
-    public Response() {
-    }
 
     public T getData() {
         return data;
@@ -25,12 +20,19 @@ public class Response<T> {
         this.data = data;
     }
 
-    public Status getStatus() {
-        return status;
+    public String getMessage() {
+        return message;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
+    public Long getCode() {
+        return code;
+    }
+
+    public void setCode(Long code) {
+        this.code = code;
+    }
 }

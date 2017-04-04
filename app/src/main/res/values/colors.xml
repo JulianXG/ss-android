@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00CC00</color>
+    <color name="colorPrimary">#FF00ABFE</color>
     <!--<color name="colorPrimaryDark">#FFFFFF</color>-->
     <!--<color name="colorPrimary">#3F51B5</color>-->
-    <color name="colorPrimaryDark">#009900</color>
+    <color name="colorPrimaryDark">#FF0066FE</color>
     <color name="colorAccent">#0099CC</color>
     <color name="windowBackground">#000000</color>
 
-
-    <color name="divider">#CCC</color>
+    <color name="already_like">@color/colorPrimary</color>
+    <color name="divider">#DDD</color>
+    <color name="gray">#888888</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>

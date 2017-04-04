@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+    private Integer id;
 
     private String username;
 
@@ -15,31 +16,41 @@ public class User implements Serializable {
 
     private String realName;
 
-    private Integer roleId;
-
-    private Boolean sex;
+    private Byte sex;
 
     private String email;
 
-    private Integer qq;
-
-    private Integer permission;
+    private String qq;
 
     private String school;
 
     private String tel;
 
-    private Integer blogNum;
+    private Integer microblogCount;
 
-    private String introduction;
+    private String location;
 
     private String tag;
+
+    private Date loginTime;
+
+    private Integer loginCount;
+
+    private Date lastLoginTime;
 
     private Date createTime;
 
     private Date updateTime;
 
     private Boolean isDeleted;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -81,19 +92,11 @@ public class User implements Serializable {
         this.realName = realName == null ? null : realName.trim();
     }
 
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
-    }
-
-    public Boolean getSex() {
+    public Byte getSex() {
         return sex;
     }
 
-    public void setSex(Boolean sex) {
+    public void setSex(Byte sex) {
         this.sex = sex;
     }
 
@@ -105,20 +108,12 @@ public class User implements Serializable {
         this.email = email == null ? null : email.trim();
     }
 
-    public Integer getQq() {
+    public String getQq() {
         return qq;
     }
 
-    public void setQq(Integer qq) {
-        this.qq = qq;
-    }
-
-    public Integer getPermission() {
-        return permission;
-    }
-
-    public void setPermission(Integer permission) {
-        this.permission = permission;
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
     }
 
     public String getSchool() {
@@ -137,20 +132,20 @@ public class User implements Serializable {
         this.tel = tel == null ? null : tel.trim();
     }
 
-    public Integer getBlogNum() {
-        return blogNum;
+    public Integer getMicroblogCount() {
+        return microblogCount;
     }
 
-    public void setBlogNum(Integer blogNum) {
-        this.blogNum = blogNum;
+    public void setMicroblogCount(Integer microblogCount) {
+        this.microblogCount = microblogCount;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getLocation() {
+        return location;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction == null ? null : introduction.trim();
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
     }
 
     public String getTag() {
@@ -159,6 +154,30 @@ public class User implements Serializable {
 
     public void setTag(String tag) {
         this.tag = tag == null ? null : tag.trim();
+    }
+
+    public Date getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public Integer getLoginCount() {
+        return loginCount;
+    }
+
+    public void setLoginCount(Integer loginCount) {
+        this.loginCount = loginCount;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 
     public Date getCreateTime() {

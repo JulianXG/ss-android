@@ -1,15 +1,24 @@
-/**
- * Created by Kalyter on 2016/11/18.
- */
 package cn.kalyter.ss.model;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Microblog implements Serializable {
-    private Integer uid;
+public class Microblog {
+    private Integer id;
+
+    private Integer userId;
+
+    private String avatar;
+
+    private String nickname;
+
+    private Integer issolved;
 
     private String content;
+
+    private Integer likeStatus;
+
+    private String device;
 
     private Integer collectCount;
 
@@ -19,11 +28,13 @@ public class Microblog implements Serializable {
 
     private Integer likeCount;
 
-    private Date postTime;
+    private List<Image> mImages;
+
+    private Long postTime;
 
     private String theme;
 
-    private String image;
+    private String location;
 
     private String tag;
 
@@ -33,20 +44,68 @@ public class Microblog implements Serializable {
 
     private Boolean isDeleted;
 
-    public Integer getUid() {
-        return uid;
+    public Integer getLikeStatus() {
+        return likeStatus;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setLikeStatus(Integer likeStatus) {
+        this.likeStatus = likeStatus;
     }
 
-    public String getImage() {
-        return image;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
+    }
+
+    public List<Image> getImages() {
+        return mImages;
+    }
+
+    public void setImages(List<Image> images) {
+        this.mImages = images;
+    }
+
+    public Integer getIssolved() {
+        return issolved;
+    }
+
+    public void setIssolved(Integer issolved) {
+        this.issolved = issolved;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getContent() {
@@ -89,11 +148,11 @@ public class Microblog implements Serializable {
         this.likeCount = likeCount;
     }
 
-    public Date getPostTime() {
+    public Long getPostTime() {
         return postTime;
     }
 
-    public void setPostTime(Date postTime) {
+    public void setPostTime(Long postTime) {
         this.postTime = postTime;
     }
 
@@ -103,6 +162,14 @@ public class Microblog implements Serializable {
 
     public void setTheme(String theme) {
         this.theme = theme == null ? null : theme.trim();
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
     }
 
     public String getTag() {

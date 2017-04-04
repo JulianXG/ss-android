@@ -5,11 +5,13 @@ package cn.kalyter.ss.dagger.module;
 
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.concurrent.TimeUnit;
 
+import cn.kalyter.ss.data.remote.api.MicroblogService;
+import cn.kalyter.ss.data.remote.api.OperateService;
+import cn.kalyter.ss.data.remote.api.UploadService;
 import cn.kalyter.ss.data.remote.api.UserService;
 import dagger.Module;
 import dagger.Provides;
@@ -17,18 +19,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 @Module
 public class ApiModule {
     private static final String TAG = "ApiModule";
-    private static final String API_BASE_URL = "http:/ss.kalyter.cn/api/";
-//    private static final String API_BASE_URL = "http:/192.168.155.1:8080";
-
-    @Provides
-    Gson provideGson() {
-        return new GsonBuilder().create();
-    }
+//    private static final String API_BASE_URL = "http://ss.kalyter.cn/api/";
+    private static final String API_BASE_URL = "http://192.168.1.135:8080";
 
     @Provides
     HttpLoggingInterceptor provideLogging() {
@@ -46,17 +43,18 @@ public class ApiModule {
     @Provides
     OkHttpClient provideClient(HttpLoggingInterceptor loggingInterceptor) {
         return new OkHttpClient.Builder()
-                .connectTimeout(5, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
                 .addInterceptor(loggingInterceptor)
                 .build();
     }
 
     @Provides
-    Retrofit provideRetrofit(Gson gson, OkHttpClient client) {
+    Retrofit provideRetrofit(OkHttpClient client) {
+        ObjectMapper mapper = new ObjectMapper();
         return new Retrofit.Builder()
                 .baseUrl(API_BASE_URL)
                 .client(client)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(JacksonConverterFactory.create(mapper))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
     }
@@ -64,5 +62,20 @@ public class ApiModule {
     @Provides
     UserService provideLogin(Retrofit retrofit) {
         return retrofit.create(UserService.class);
+    }
+
+    @Provides
+    MicroblogService provideMicroblog(Retrofit retrofit) {
+        return retrofit.create(MicroblogService.class);
+    }
+
+    @Provides
+    UploadService provideUpload(Retrofit retrofit) {
+        return retrofit.create(UploadService.class);
+    }
+
+    @Provides
+    OperateService provideOperate(Retrofit retrofit) {
+        return retrofit.create(OperateService.class);
     }
 }
