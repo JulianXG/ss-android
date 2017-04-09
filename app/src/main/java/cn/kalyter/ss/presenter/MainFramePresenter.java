@@ -5,9 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.PushManager;
-
 import java.util.List;
 
 import cn.kalyter.ss.R;
@@ -20,9 +17,11 @@ public class MainFramePresenter implements MainFrameContract.Presenter {
     private static final String TAG = "MainFramePresenter";
 
     private MainFrameContract.View mView;
+    private Context mContext;
 
-    public MainFramePresenter(MainFrameContract.View view) {
+    public MainFramePresenter(MainFrameContract.View view, Context context) {
         mView = view;
+        mContext = context;
     }
 
     @Override
@@ -43,7 +42,7 @@ public class MainFramePresenter implements MainFrameContract.Presenter {
                     fragmentTransaction.add(R.id.content, new TrendsFragment(),
                             String.valueOf(position));
                     break;
-                case 2:
+                case 1:
                     mView.showActivity(NewActivity.class);
                     break;
             }

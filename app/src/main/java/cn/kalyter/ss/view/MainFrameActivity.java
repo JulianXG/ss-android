@@ -30,6 +30,8 @@ public class MainFrameActivity extends BaseActivity implements MainFrameContract
     @BindView(R.id.bar)
     BottomNavigationBar mBottomNavigator;
 
+    private int lastPosition;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +40,7 @@ public class MainFrameActivity extends BaseActivity implements MainFrameContract
         mBottomNavigator
                 .addItem(new BottomNavigationItem(R.drawable.ic_grade_black_24dp, "动态"))
                 .setActiveColor(R.color.colorPrimaryDark)
-                .addItem(new BottomNavigationItem(R.drawable.ic_mail_black_24dp, "信息"))
-                .setActiveColor(R.color.colorPrimaryDark)
                 .addItem(new BottomNavigationItem(R.drawable.ic_add_box_black_24dp, "新建"))
-                .setActiveColor(R.color.colorPrimaryDark)
-                .addItem(new BottomNavigationItem(R.drawable.ic_search_black_24dp, "搜索"))
                 .setActiveColor(R.color.colorPrimaryDark)
                 .addItem(new BottomNavigationItem(R.drawable.ic_account_circle_black_24dp, "我的"))
                 .setActiveColor(R.color.colorPrimaryDark)
@@ -74,11 +72,19 @@ public class MainFrameActivity extends BaseActivity implements MainFrameContract
         startActivity(new Intent(this, activityClass));
     }
 
-
     @Override
     public void onTabSelected(int position) {
-        mPresenter.toggleFragment(mFragmentManager, position);
+        // 将新增看成是一个按钮，而不是一个页面
+        if (position == 1) {
+            mBottomNavigator.selectTab(lastPosition);
+            startActivity(new Intent(this, NewActivity.class));
+        } else {
+            lastPosition = position;
+            mPresenter.toggleFragment(mFragmentManager, position);
+        }
     }
+
+
 
     @Override
     public void onTabUnselected(int position) {

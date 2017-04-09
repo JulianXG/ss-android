@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">校园安全</string>
+    <string name="github_api_users">https://api.github.com/users/</string>
+    <string name="hint_input_username">请填写用户名</string>
+    <string name="hint_input_password">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="sign_up_ask">还没有账号?创建一个</string>
+    <string name="hint_authenticating">正在验证中……</string>
+    <string name="title_sign_up">注册账号</string>
+    <string name="hint_confirm_password">请再输入一遍密码</string>
+    <string name="hint_user_name">请输入用户名</string>
+    <string name="sign_up">注册</string>
+    <string name="error_username_or_password">用户名或密码错误</string>
+    <string name="v0_1_0">校园安全 v0.1.0</string>
+    <string name="repost">转发</string>
+    <string name="comment">评论</string>
+    <string name="like">点赞</string>
+    <string name="hint_new">请输入分享内容</string>
+    <string name="share">分享</string>
+    <string name="network_error">网络连接出错，请检查是否有网络连接</string>
+    <string name="already_latest">已经是最新了</string>
+    <string name="up_load_more">上拉加载更多</string>
+    <string name="detail">正文详情</string>
+    <string name="load_detail_error">加载详情页出错</string>
+</resources>

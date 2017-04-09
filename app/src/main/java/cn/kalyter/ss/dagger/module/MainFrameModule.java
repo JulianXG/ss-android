@@ -30,7 +30,7 @@ public class MainFrameModule {
 
     @Provides
     MainFrameContract.Presenter provideMainPresenter(MainFrameContract.View view) {
-        return new MainFramePresenter(view);
+        return new MainFramePresenter(view, mMainFrameActivity);
     }
 
     @Provides

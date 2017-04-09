@@ -6,11 +6,13 @@ package cn.kalyter.ss.presenter;
 import android.content.Context;
 import android.os.Handler;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.PushManager;
+
+import com.igexin.sdk.PushManager;
 
 import cn.kalyter.ss.contract.SplashContract;
 import cn.kalyter.ss.data.local.SplashSource;
+import cn.kalyter.ss.util.PushIntentService;
+import cn.kalyter.ss.util.PushService;
 import cn.kalyter.ss.view.LoginActivity;
 import cn.kalyter.ss.view.MainFrameActivity;
 
@@ -44,8 +46,8 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public void start() {
-        PushManager.startWork(mContext, PushConstants.LOGIN_TYPE_API_KEY,
-                "qvMu9LVY2Qt4um9B3fTbWxC3");
         loadSplash();
+        PushManager.getInstance().initialize(mContext, PushService.class);
+        PushManager.getInstance().registerPushIntentService(mContext, PushIntentService.class);
     }
 }

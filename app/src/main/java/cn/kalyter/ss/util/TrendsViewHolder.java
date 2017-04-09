@@ -15,22 +15,7 @@ import butterknife.ButterKnife;
 import cn.kalyter.ss.R;
 
 public class TrendsViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.avatar)
-    ImageView mAvatar;
-    @BindView(R.id.username)
-    TextView mUsername;
-    @BindView(R.id.post_time)
-    TextView mPostTime;
-    @BindView(R.id.source)
-    TextView mSource;
-    @BindView(R.id.content)
-    TextView mContent;
-    @BindView(R.id.image0)
-    ImageView mImage0;
-    @BindView(R.id.image1)
-    ImageView mImage1;
-    @BindView(R.id.image2)
-    ImageView mImage2;
+
     @BindView(R.id.repost)
     TextView mRepostCount;
     @BindView(R.id.comment)
@@ -47,6 +32,8 @@ public class TrendsViewHolder extends RecyclerView.ViewHolder {
     RelativeLayout mRepostContainer;
     @BindView(R.id.trend_container)
     LinearLayout mTrendContainer;
+    @BindView(R.id.microblog_container)
+    LinearLayout mMicroblogContainer;
 
     public TrendsViewHolder(View itemView) {
         super(itemView);

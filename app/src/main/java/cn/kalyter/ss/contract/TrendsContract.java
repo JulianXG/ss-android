@@ -3,6 +3,7 @@
  */
 package cn.kalyter.ss.contract;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import cn.kalyter.ss.common.BasePresenter;
@@ -15,7 +16,7 @@ public interface TrendsContract {
 
         void showNoMore();
 
-        void showLoadingSuccess();
+        void showLoadingSuccess(int count);
 
         void showLoadingError();
 
@@ -26,6 +27,14 @@ public interface TrendsContract {
         void showUser(User user);
 
         void setAdapter(RecyclerView.Adapter adapter);
+
+        void showComments(long microblogId);
+
+        void showCommentSuccess();
+
+        void showCommentFail();
+
+        void moveToPosition(int position);
     }
 
     interface Presenter extends BasePresenter {
@@ -34,5 +43,7 @@ public interface TrendsContract {
         void refresh();
 
         void loadMore();
+
+        void commentMicroblog(long microblogId, String content);
     }
 }

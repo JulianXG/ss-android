@@ -24,8 +24,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 @Module
 public class ApiModule {
     private static final String TAG = "ApiModule";
-//    private static final String API_BASE_URL = "http://ss.kalyter.cn/api/";
-    private static final String API_BASE_URL = "http://192.168.1.135:8080";
+    private static final String API_BASE_URL = "http://ss.kalyter.cn/";
+//    private static final String API_BASE_URL = "http://192.168.1.135:8080";
 
     @Provides
     HttpLoggingInterceptor provideLogging() {
@@ -43,7 +43,7 @@ public class ApiModule {
     @Provides
     OkHttpClient provideClient(HttpLoggingInterceptor loggingInterceptor) {
         return new OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.SECONDS)
+                .connectTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(loggingInterceptor)
                 .build();
     }

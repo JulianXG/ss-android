@@ -5,6 +5,9 @@ package cn.kalyter.ss.dagger;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 
 import cn.kalyter.ss.dagger.component.ApiComponent;
 import cn.kalyter.ss.dagger.component.AppComponent;
@@ -20,13 +23,14 @@ public class App extends Application {
     private static AppComponent mAppComponent;
     private static ApiComponent mApiComponent;
     private static RepositoryComponent mRepositoryComponent;
+    private Context mContext;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Context context = getApplicationContext();
+        mContext = getApplicationContext();
         mAppComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(context))
+                .appModule(new AppModule(mContext))
                 .build();
         mApiComponent = DaggerApiComponent.builder()
                 .apiModule(new ApiModule())

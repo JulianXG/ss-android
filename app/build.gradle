@@ -10,7 +10,17 @@ android {
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
-        versionName "0.1.0"
+        versionName "1.0"
+
+        manifestPlaceholders = [
+                GETUI_APP_ID : "LvbxRVzAFw8OO92abRxArA",
+                GETUI_APP_KEY : "ADWOOjfapf6qcnLUSm37a6",
+                GETUI_APP_SECRET : "3nsx2Wy9M160OLPfcrc1m6"
+        ]
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86_64"
+        }
     }
     buildTypes {
         release {
@@ -26,11 +36,6 @@ android {
         variant -> variant.outputs.each {
             output -> output.outputFile = new File(output.outputFile.parent,
                     "${defaultConfig.applicationId}-${defaultConfig.versionName}.apk");
-        }
-    }
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
         }
     }
     packagingOptions {
@@ -63,9 +68,16 @@ dependencies {
     //butterknife
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+
     compile 'com.jude:rollviewpager:1.4.5'
-    compile files('libs/pushservice-5.6.0.30.jar')
 
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'cn.bingoogolapple:bga-refreshlayout:1.1.1@aar'
+    compile project(':imageeditlibrary')
+    compile 'com.yuyh.imgsel:library:1.3.8'
+
+    compile 'com.github.chrisbanes:PhotoView:1.2.6'
+
+    compile 'com.getui:sdk:2.10.2.0'
 }

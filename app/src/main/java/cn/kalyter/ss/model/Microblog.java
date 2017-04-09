@@ -14,11 +14,21 @@ public class Microblog {
 
     private Integer issolved;
 
+    private Integer rootId;
+
+    private Integer repostFlag;
+
+    private Integer repostId;
+
+    private String repostContent;
+
+    private Microblog rootMicroblog;
+
     private String content;
 
     private Integer likeStatus;
 
-    private String device;
+    private String deviceName;
 
     private Integer collectCount;
 
@@ -44,6 +54,46 @@ public class Microblog {
 
     private Boolean isDeleted;
 
+    public Integer getRootId() {
+        return rootId;
+    }
+
+    public void setRootId(Integer rootId) {
+        this.rootId = rootId;
+    }
+
+    public Microblog getRootMicroblog() {
+        return rootMicroblog;
+    }
+
+    public void setRootMicroblog(Microblog rootMicroblog) {
+        this.rootMicroblog = rootMicroblog;
+    }
+
+    public Integer getRepostFlag() {
+        return repostFlag;
+    }
+
+    public void setRepostFlag(Integer repostFlag) {
+        this.repostFlag = repostFlag;
+    }
+
+    public Integer getRepostId() {
+        return repostId;
+    }
+
+    public void setRepostId(Integer repostId) {
+        this.repostId = repostId;
+    }
+
+    public String getRepostContent() {
+        return repostContent;
+    }
+
+    public void setRepostContent(String repostContent) {
+        this.repostContent = repostContent;
+    }
+
     public Integer getLikeStatus() {
         return likeStatus;
     }
@@ -68,12 +118,12 @@ public class Microblog {
         this.nickname = nickname;
     }
 
-    public String getDevice() {
-        return device;
+    public String getDeviceName() {
+        return deviceName;
     }
 
-    public void setDevice(String device) {
-        this.device = device;
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
     }
 
     public List<Image> getImages() {
