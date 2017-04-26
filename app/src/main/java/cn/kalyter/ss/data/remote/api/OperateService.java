@@ -43,4 +43,12 @@ public interface OperateService {
     Observable<Response> repostMicroblog(@Path("microblogId") long repostMicroblogId,
                                          @Part("microblog") Microblog microblog,
                                          @Part List<MultipartBody.Part> images);
+
+    @PUT("/operate/microblog/problem/{microblogId}/{status}")
+    Observable<Response> changeSolveStatus(@Path("microblogId") int microblogId,
+                                      @Path("status") int status);
+
+    @PUT("/operate/status/{userId}/{microblogId}")
+    Observable<Response> markViewStatus(@Path("userId") int userId,
+                                        @Path("microblogId") long microblogId);
 }

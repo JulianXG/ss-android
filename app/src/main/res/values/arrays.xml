@@ -4,4 +4,11 @@
         <item>从相册选择</item>
         <item>拍照</item>
     </array>
+
+    <string-array name="microblog_types">
+        <item>全部</item>
+        <item>未浏览</item>
+        <item>待解决</item>
+        <item>已解决</item>
+    </string-array>
 </resources>

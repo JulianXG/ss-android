@@ -7,10 +7,9 @@ import android.os.Build;
  */
 
 public final class Config {
-    public static final String COMMON_SP = "COMMON_SP";
+    public static final String SP = "SP";
 
-    //  LoginRepository的配置常量
-    public static final String LOGIN_SP = "LOGIN_SP";
+    public static final String KEY_CLIENT_ID = "CLIENT_ID";
 
     public static final int ONE_HOUR = 60 * 60;
     public static final int ONE_DAY = 24 * ONE_HOUR;
@@ -20,6 +19,7 @@ public final class Config {
 
     // HTTP请求返回码
     public static final int OK = 200;
+    public static final int ERROR_USERNAME_ALREADY_EXISTS = 401;
 
     public static final byte MALE = 0;
     public static final byte FEMALE = 1;
@@ -40,6 +40,8 @@ public final class Config {
     public static final int FROM_COMMENT = 101;
     public static final String KEY_IMAGES = "IMAGES";
     public static final String KEY_IMAGE_INDEX = "IMAGE_INDEX";
+    public static final String KEY_ADMIN_TYPE = "ADMIN_TYPE";
+    public static final String KEY_ADMIN_KEYWORDS = "ADMIN_KEYWORDS";
 
     // Request Code值
     public static final int REQUEST_CODE_TAKE_PHOTO = 1000;
@@ -59,4 +61,14 @@ public final class Config {
     // Argument
     public static final String KEY_ONELINE_ADAPTER_ARGUMENT = "ONELINE_ADAPTER_ARGUMENT";
     public static final String KEY_MICROBLOG_ID = "MICROBLOG_ID";
+
+
+    public static final int PAGE_SIZE = 10;
+
+    public static final int ROLE_ADMIN = 2;
+    public static final int ROLE_USER = 1;
+
+    public static final int NOT_VIEWED = 1;
+    public static final int NOT_RESOLVED = 2;
+    public static final int ALREADY_RESOLVED = 3;
 }

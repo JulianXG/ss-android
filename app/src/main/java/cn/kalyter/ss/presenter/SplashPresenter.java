@@ -46,8 +46,8 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public void start() {
-        loadSplash();
         PushManager.getInstance().initialize(mContext, PushService.class);
         PushManager.getInstance().registerPushIntentService(mContext, PushIntentService.class);
+        loadSplash();
     }
 }

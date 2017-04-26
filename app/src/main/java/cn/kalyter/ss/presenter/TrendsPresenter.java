@@ -28,6 +28,7 @@ import cn.kalyter.ss.view.MicroblogDetailActivity;
 import cn.kalyter.ss.view.NewActivity;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 import static cn.kalyter.ss.config.Config.ALREADY_LATEST;
@@ -256,5 +257,18 @@ public class TrendsPresenter implements TrendsContract.Presenter,
         intent.putExtra(Config.INTENT_OPEN_TYPE, Config.FROM_DETAIL);
         intent.setClass(mContext, MicroblogDetailActivity.class);
         mContext.startActivity(intent);
+    }
+
+    @Override
+    public void onViewMicroblog(final long microblogId) {
+        mOperateService.markViewStatus(mUserSource.getUserId(), microblogId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Response>() {
+                    @Override
+                    public void call(Response response) {
+                        Log.i(TAG, "call: microblogId为：" + microblogId + "已浏览过");
+                    }
+                });
     }
 }

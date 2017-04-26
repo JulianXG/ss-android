@@ -7,23 +7,14 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.kalyter.ss.R;
-import cn.kalyter.ss.model.Image;
 import cn.kalyter.ss.model.Microblog;
 
 import static cn.kalyter.ss.config.Config.ALREADY_LATEST;
@@ -73,9 +64,11 @@ public class TrendsRecyclerAdapter extends RecyclerView.Adapter<TrendsViewHolder
         }
 
         if (data.getLikeStatus() != null && data.getLikeStatus() == 1) {
-            Drawable drawable = ContextCompat.getDrawable(mContext, R.drawable.ic_thumb_up_gray_24dp);
+            Drawable drawable = ContextCompat.getDrawable(
+                    mContext, R.drawable.ic_thumb_up_gray_24dp).mutate();
             Drawable tint = DrawableCompat.wrap(drawable);
-            DrawableCompat.setTint(tint, ContextCompat.getColor(mContext, R.color.already_like));
+            DrawableCompat.setTint(tint, ContextCompat.getColor(
+                    mContext, R.color.already_like));
             holder.mLikeImage.setImageDrawable(tint);
             holder.mLikeContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,9 +77,11 @@ public class TrendsRecyclerAdapter extends RecyclerView.Adapter<TrendsViewHolder
                 }
             });
         } else {
-            Drawable drawable = ContextCompat.getDrawable(mContext, R.drawable.ic_thumb_up_gray_24dp);
+            Drawable drawable = ContextCompat.getDrawable(
+                    mContext, R.drawable.ic_thumb_up_gray_24dp).mutate();
             Drawable tint = DrawableCompat.wrap(drawable);
-            DrawableCompat.setTint(tint, ContextCompat.getColor(mContext, R.color.gray));
+            DrawableCompat.setTint(tint, ContextCompat.getColor(
+                    mContext, R.color.gray));
             holder.mLikeImage.setImageDrawable(tint);
             holder.mLikeContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -114,6 +109,7 @@ public class TrendsRecyclerAdapter extends RecyclerView.Adapter<TrendsViewHolder
                 mListener.showDetail(microblogId);
             }
         });
+        mListener.onViewMicroblog(microblogId);
         Util.showMicroblog(mContext, holder.mMicroblogContainer, data);
     }
 
@@ -193,5 +189,7 @@ public class TrendsRecyclerAdapter extends RecyclerView.Adapter<TrendsViewHolder
         void showRepost(long microblogId);
 
         void showDetail(long microblogId);
+
+        void onViewMicroblog(long microblogId);
     }
 }

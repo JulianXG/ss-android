@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -25,6 +27,7 @@ import cn.kalyter.ss.R;
 import cn.kalyter.ss.common.BaseActivity;
 import cn.kalyter.ss.config.Config;
 import cn.kalyter.ss.util.HealthyViewPager;
+import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
@@ -100,14 +103,15 @@ public class ViewImagesActivity extends BaseActivity {
     class ImagePagerAdapter extends PagerAdapter {
         private List<String> mData;
         private Context mContext;
-        private List<ImageView> mImageViews;
+        private List<View> mImageViews;
 
         public ImagePagerAdapter(List<String> data, Context context) {
             mData = data;
             mContext = context;
             mImageViews = new ArrayList<>(mData.size());
             for (int i = 0; i < mData.size(); i++) {
-                ImageView imageView = new ImageView(mContext);
+                RelativeLayout imageView = (RelativeLayout) LayoutInflater.from(mContext)
+                        .inflate(R.layout.layout_view_image, null);
                 mImageViews.add(imageView);
             }
         }
@@ -120,11 +124,12 @@ public class ViewImagesActivity extends BaseActivity {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            ImageView view = mImageViews.get(position);
+            ImageView view = (ImageView) mImageViews.get(position).findViewById(R.id.photo);
             Glide.with(mContext)
                     .load(mData.get(position))
+                    .thumbnail(0.1f)
+                    .fitCenter()
                     .placeholder(R.drawable.ic_panorama_black_24dp)
-                    .centerCrop()
                     .into(view);
             new PhotoViewAttacher(view);
             container.addView(view);

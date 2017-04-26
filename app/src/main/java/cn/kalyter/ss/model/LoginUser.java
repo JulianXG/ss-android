@@ -8,6 +8,15 @@ import java.io.Serializable;
 public class LoginUser implements Serializable {
     private String username;
     private String password;
+    private String clientId;
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
 
     public String getUsername() {
         return username;

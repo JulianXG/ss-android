@@ -8,6 +8,8 @@ public class Microblog {
 
     private Integer userId;
 
+    private Integer status;
+
     private String avatar;
 
     private String nickname;
@@ -252,5 +254,13 @@ public class Microblog {
 
     public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

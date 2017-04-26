@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 import cn.kalyter.ss.R;
+import cn.kalyter.ss.config.Config;
 import cn.kalyter.ss.model.Image;
 import cn.kalyter.ss.model.Microblog;
 import cn.kalyter.ss.view.ViewImagesActivity;
@@ -59,11 +60,14 @@ public final class Util {
                     try {
                         Method method = cls.getMethod(setType, type);
                         if (type.getName().equals(Integer.class.getName()) ||
-                                type.getName().equals(Long.class.getName()) ||
-                                type.getName().equals(Byte.class.getName()) ) {
+                                type.getName().equals(Long.class.getName())) {
                             method.invoke(instance, 0);
-                        } else if (type.getName().equals(String.class.getName())){
-                            method.invoke(instance, "");
+                        } else if (type.getName().equals(Byte.class.getName())) {
+                            method.invoke(instance, (byte) 0);
+                        } else {
+                            if (type.getName().equals(String.class.getName())) {
+                                method.invoke(instance, "");
+                            }
                         }
                     } catch (NoSuchMethodException ignored) {
 
@@ -138,7 +142,7 @@ public final class Util {
         ImageView avatar = (ImageView) view.findViewById(R.id.avatar);
         ImageView solvedStatus = (ImageView) view.findViewById(R.id.solve_status);
         int statusResId;
-        if (microblog.getIssolved() == 0) {
+        if (microblog.getIssolved() != null && microblog.getIssolved() == 0) {
             statusResId = R.drawable.to_be_solved;
         } else {
             statusResId = R.drawable.solved;
@@ -294,5 +298,13 @@ public final class Util {
             result.add(image.getPath());
         }
         return result;
+    }
+
+    public static String parseSex(Byte sex) {
+        if (sex == Config.FEMALE) {
+            return "女";
+        } else {
+            return "男";
+        }
     }
 }

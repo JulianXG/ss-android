@@ -6,6 +6,8 @@ import java.util.Date;
 public class User implements Serializable {
     private Integer id;
 
+    private Integer roleId;
+
     private String username;
 
     private String nickname;
@@ -30,6 +32,8 @@ public class User implements Serializable {
 
     private String location;
 
+    private String clientId;
+
     private String tag;
 
     private Date loginTime;
@@ -43,6 +47,14 @@ public class User implements Serializable {
     private Date updateTime;
 
     private Boolean isDeleted;
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
 
     public Integer getId() {
         return id;
@@ -202,5 +214,13 @@ public class User implements Serializable {
 
     public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }

@@ -33,6 +33,8 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void login(final LoginUser loginUser) {
+        String clientId = mSplashSource.getClientId();
+        loginUser.setClientId(clientId);
         mView.showLoginStart();
         mView.hideSoftInputMethod();
         mUserService.login(loginUser)

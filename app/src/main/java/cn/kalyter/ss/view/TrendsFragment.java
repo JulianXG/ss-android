@@ -101,7 +101,7 @@ public class TrendsFragment extends BaseFragment implements TrendsContract.View,
 
     @Override
     public void showAlreadyLatest() {
-        Toast.makeText(getContext(), R.string.already_latest, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), R.string.already_latest, Toast.LENGTH_SHORT).show();
     }
 
     @Override

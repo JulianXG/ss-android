@@ -21,6 +21,8 @@ public interface LoginContract {
         void showMainFrame();
 
         void closeLoginLoading();
+
+        void showValidateError();
     }
 
     interface Presenter extends BasePresenter {

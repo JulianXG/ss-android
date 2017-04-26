@@ -5,16 +5,16 @@ package cn.kalyter.ss.model;
  */
 public class Search {
 
-	private Integer uid;
+	private Integer type;
 
 	private String keyword;
 
-	public Integer getUid() {
-		return uid;
+	public Integer getType() {
+		return type;
 	}
 
-	public void setUid(Integer uid) {
-		this.uid = uid;
+	public void setType(Integer type) {
+		this.type = type;
 	}
 
 	public String getKeyword() {

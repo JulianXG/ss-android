@@ -9,6 +9,7 @@ import java.util.List;
 
 import cn.kalyter.ss.R;
 import cn.kalyter.ss.contract.MainFrameContract;
+import cn.kalyter.ss.view.MeFragment;
 import cn.kalyter.ss.view.NewActivity;
 import cn.kalyter.ss.view.TrendsFragment;
 
@@ -44,6 +45,10 @@ public class MainFramePresenter implements MainFrameContract.Presenter {
                     break;
                 case 1:
                     mView.showActivity(NewActivity.class);
+                    break;
+                case 2:
+                    fragmentTransaction.add(R.id.content, new MeFragment(),
+                            String.valueOf(position));
                     break;
             }
         }

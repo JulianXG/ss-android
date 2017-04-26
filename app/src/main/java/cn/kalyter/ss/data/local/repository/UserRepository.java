@@ -8,11 +8,11 @@ import android.content.SharedPreferences;
 
 import java.util.Date;
 
+import cn.kalyter.ss.config.Config;
 import cn.kalyter.ss.data.local.UserSource;
 import cn.kalyter.ss.model.User;
 import cn.kalyter.ss.util.Util;
 
-import static cn.kalyter.ss.config.Config.LOGIN_SP;
 
 public class UserRepository implements UserSource {
     private static final String TAG = "UserRepository";
@@ -35,19 +35,12 @@ public class UserRepository implements UserSource {
     private static final String KEY_LOGIN_COUNT = "LOGIN_COUNT";
     private static final String KEY_LAST_LOGIN_TIME = "LAST_LOGIN_TIME";
     private static final String KEY_AVATAR = "AVATAR";
+    private static final String KEY_ROLE_ID = "ROLE_ID";
 
     public UserRepository(Context context) {
         mContext = context;
-        mSharedPreferences = mContext.getSharedPreferences(LOGIN_SP, Context.MODE_PRIVATE);
+        mSharedPreferences = mContext.getSharedPreferences(Config.SP, Context.MODE_PRIVATE);
     }
-
-//    @Override
-//    public Token getToken() {
-//        return Select.from(Token.class)
-//                .where(Condition.prop("is_deleted").eq(false))
-//                .orderBy("id")
-//                .first();
-//    }
 
     @Override
     public void saveUser(User user) {
@@ -70,6 +63,7 @@ public class UserRepository implements UserSource {
             editor.putLong(KEY_LOGIN_TIME, user.getLoginTime().getTime());
             editor.putInt(KEY_LOGIN_COUNT, user.getLoginCount());
             editor.putLong(KEY_LAST_LOGIN_TIME, user.getLastLoginTime().getTime());
+            editor.putInt(KEY_ROLE_ID, user.getRoleId());
             editor.apply();
         }
     }
@@ -95,6 +89,7 @@ public class UserRepository implements UserSource {
         user.setLoginCount(mSharedPreferences.getInt(KEY_LOGIN_COUNT, 0));
         long lastLoginTime = mSharedPreferences.getLong(KEY_LAST_LOGIN_TIME, 0);
         user.setLastLoginTime(new Date(lastLoginTime));
+        user.setRoleId(mSharedPreferences.getInt(KEY_ROLE_ID, 0));
         return user;
     }
 

@@ -53,6 +53,16 @@
         <activity android:name=".view.MicroblogDetailActivity"/>
         <activity android:name=".view.NewActivity"
             android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name=".view.RegisterActivity"/>
+        <activity android:name=".view.ProfileActivity"/>
+        <activity android:name=".view.SettingsActivity"/>
+        <activity android:name=".view.AboutActivity"/>
+        <activity android:name=".view.FeedbackActivity"/>
+        <activity android:name=".view.HelpActivity"/>
+        <activity android:name=".view.IntroductionActivity"/>
+        <activity android:name=".view.MicroblogCenterActivity"/>
+        <activity android:name=".view.ChangePasswordActivity"/>
+        <activity android:name=".view.SearchMicroblogActivity"/>
 
         <service android:name=".util.PushIntentService"/>
 

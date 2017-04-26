@@ -10,10 +10,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import javax.inject.Inject;
@@ -31,11 +33,9 @@ import cn.kalyter.ss.model.LoginUser;
 public class LoginActivity extends BaseActivity implements LoginContract.View {
     private static final String TAG = "LoginActivity";
 
-//    @NotEmpty(message = "输入用户名")
     @BindView(R.id.email)
     EditText mEmail;
 
-//    @Password(min = 0, message = "无效的密码")
     @BindView(R.id.password)
     EditText mPassword;
 
@@ -50,51 +50,24 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     LoginContract.Presenter mPresenter;
     @Inject
     ProgressDialog mProgressDialog;
-//    @Inject
-//    Validator mValidator;
 
     @OnClick(R.id.login)
     void login() {
-        LoginUser loginUser = new LoginUser();
-        loginUser.setUsername(mEmail.getText().toString());
-        loginUser.setPassword(mPassword.getText().toString());
-        mPresenter.login(loginUser);
-//        mValidator.validate();
+        if (TextUtils.isEmpty(mEmail.getText()) ||
+                TextUtils.isEmpty(mPassword.getText())) {
+            showValidateError();
+        } else {
+            LoginUser loginUser = new LoginUser();
+            loginUser.setUsername(mEmail.getText().toString());
+            loginUser.setPassword(mPassword.getText().toString());
+            mPresenter.login(loginUser);
+        }
     }
 
     @OnClick(R.id.sign_up)
     void showSignUp() {
-//        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-//        startActivity(intent);
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        mValidator.setValidationListener(new Validator.ValidationListener() {
-//            @Override
-//            public void onValidationSucceeded() {
-//                LoginUser loginUser = new LoginUser();
-//                loginUser.setUsername(mEmail.getText().toString());
-//                loginUser.setPassword(mPassword.getText().toString());
-//                mPresenter.login(loginUser);
-//            }
-//
-//            @Override
-//            public void onValidationFailed(List<ValidationError> errors) {
-//                for (ValidationError error : errors) {
-//                    View view = error.getView();
-//                    String message = error.getCollatedErrorMessage(getApplicationContext());
-//
-//                    // Display error messages ;)
-//                    if (view instanceof EditText) {
-//                        ((EditText) view).setError(message);
-//                    } else {
-//                        showValidateError(message);
-//                    }
-//                }
-//            }
-//        });
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -136,6 +109,11 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     @Override
     public void closeLoginLoading() {
         mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void showValidateError() {
+        Toast.makeText(this, "用户名和密码不能为空", Toast.LENGTH_SHORT).show();
     }
 
     @Override

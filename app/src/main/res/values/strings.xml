@@ -23,4 +23,53 @@
     <string name="detail">正文详情</string>
     <string name="load_detail_error">加载详情页出错</string>
     <string name="commit">发送</string>
+    <string name="logout">退出登录</string>
+    <string name="hint_username">请输入用户名</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="hint_password_confirm">再次输入相同密码</string>
+    <string name="register">注册</string>
+    <string name="registering">正在提交注册信息</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="hint_nickname">请输入昵称</string>
+    <string name="profile">个人资料</string>
+    <string name="not_view_microblog">未浏览消息</string>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="avatar">头像</string>
+    <string name="nickname">昵称</string>
+    <string name="username">安全号</string>
+    <string name="gender">性别</string>
+    <string name="school">学校</string>
+    <string name="tel">手机号码</string>
+    <string name="change_password">更改密码</string>
+    <string name="version_name">版本1.0</string>
+    <string name="introduction">介绍</string>
+    <string name="check_update">检查更新</string>
+    <string name="feedback">反馈</string>
+    <string name="help">帮助</string>
+    <string name="feedback_hint">说一些想对我们说的意见</string>
+    <string name="send_feedback">发送反馈</string>
+    <string name="feedback_require">意见不能为空</string>
+    <string name="send_feedback_success">你的意见我们已经收到，我们会认真倾听你说的每一条意见</string>
+    <string name="contact_us">联系我们</string>
+    <string name="xiaogangla_qq_com">肖刚：xiaogangla@qq.com</string>
+    <string name="developer">张煊威：1120544046@qq.com</string>
+    <string name="introduction_content">
+        此app功能主要为用户在发现安全隐患等状
+态时能及时通过此app方便的上传、处理和分享
+文字、图像、视频信息，并将这些信息保存在我
+们的数据库中，推送给其他用户，其他用户在
+获取到信息时能够进行沟通与交流，管理员负责
+进行解决问题。
+    </string>
+    <string name="submitting">正在提交……</string>
+    <string name="confirm_password_error">两次输入的密码不一致</string>
+    <string name="validating">正在验证中</string>
+    <string name="solve_status">解决状态</string>
+    <string name="solved">已解决</string>
+    <string name="to_be_solved">带解决</string>
+    <string name="microblog_center">消息中心</string>
+    <string name="hint_keywords">请输入关键词</string>
+    <string name="search">搜索</string>
 </resources>

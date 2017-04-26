@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/background"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/profile_container"
+        android:background="@drawable/bg_me"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="144dp">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/membership_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/profile"
+        app:leftIcon="@drawable/ic_account_box_black_24dp"
+        app:leftText="@string/profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/microblog_center"
+        app:leftIcon="@drawable/ic_assignment_black_24dp"
+        app:leftText="@string/microblog_center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/settings"
+        app:leftText="@string/settings"
+        app:leftIcon="@drawable/ic_settings_black_24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/about"
+        app:leftText="@string/about"
+        app:leftIcon="@drawable/ic_info_black_24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/logout"
+        android:background="@android:color/holo_red_light"
+        android:layout_margin="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/logout"/>
+</LinearLayout>

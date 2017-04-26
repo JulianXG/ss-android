@@ -29,6 +29,7 @@
                 android:layout_height="28dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="8dp"
+                android:textSize="18sp"
                 android:gravity="bottom"
                 android:textColor="@color/black"/>
 
@@ -42,6 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="top"
+                    android:textSize="12sp"
                     android:layout_marginLeft="8dp"/>
 
                 <TextView
@@ -50,6 +52,7 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:maxEms="10"
+                    android:textSize="12sp"
                     android:ellipsize="end"
                     android:gravity="top"
                     android:layout_marginLeft="8dp"/>

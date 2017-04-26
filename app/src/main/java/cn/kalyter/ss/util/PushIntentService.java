@@ -2,6 +2,7 @@ package cn.kalyter.ss.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.igexin.sdk.GTIntentService;
@@ -26,6 +27,10 @@ public class PushIntentService extends GTIntentService {
     @Override
     public void onReceiveClientId(Context context, String s) {
         Log.i(TAG, "onReceiveClientId: " + s);
+        SharedPreferences mSharedPreferences = getSharedPreferences(Config.SP, MODE_PRIVATE);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString(Config.KEY_CLIENT_ID, s);
+        editor.apply();
     }
 
     @Override

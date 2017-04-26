@@ -11,4 +11,6 @@
     <color name="materialcolorpicker__dribbledark">#c32361</color>
     <color name="materialcolorpicker__black">#000000</color>
     <color name="materialcolorpicker__dialogcolor">#009688</color>
+    <color name="bright_foreground_disabled_material_light">#80000000</color>
+    <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
 </resources>

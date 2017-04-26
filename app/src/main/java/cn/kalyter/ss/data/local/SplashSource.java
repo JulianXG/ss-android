@@ -11,4 +11,6 @@ public interface SplashSource {
     Boolean getIsLogin();
 
     Long getSplashLastTime();
+
+    String getClientId();
 }
